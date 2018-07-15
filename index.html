@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Jquery</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<!-- <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.3.1.min.js"></script> -->
+  <!-- <script src="js/jquery-3.3.1.min.js"></script> -->
+
+  <style> 
+#panel, #flip {
+    padding: 5px;
+    text-align: center;
+    background-color: #e5eecc;
+    border: solid 1px #c3c3c3;
+}
+
+#panel {
+    padding: 50px;
+    display: none;
+}
+#panel2, #flip2 {
+    padding: 5px;
+    font-size: 18px;
+    text-align: center;
+    background-color: #555;
+    color: white;
+    border: solid 1px #666;
+    border-radius: 3px;
+}
+
+#panel2 {
+    padding: 50px;
+    display: none;
+}
+</style>
+</head>
+<body>
+
+
+<button id="button15">Click me</button>
+<h1 id="para6">jQuery is fun!!</h1>
+<button id="button14">call back</button>
+<h1 class="para5">This is a paragraph with little content.</h1>
+<h1 class="para1" style="background-color: yellow;">If you click on the "Hide" button, I will disappear.</h1>
+
+<button id="hide">Hide</button>
+<button id="show">Show</button>
+
+
+
+<h1 class="para2" style="background-color: yellow;">This is a paragraph with little content.</h1>
+<h1 class="para2" style="background-color: yellow;">This is another small paragraph.</h1>
+
+<button id="button1">Hide</button>
+
+<button id="button2"> show</button>
+
+
+
+<h1 class="para3" style="background-color: yellow;">This is a paragraph with little content.</h1>
+<h1 class="para3" style="background-color: yellow;">This is another small paragraph.</h1>
+
+
+<button id="button3">Toggle between hiding and showing the paragraphs</button>
+
+
+<h1 class="para4">Demonstrate fadeIn() with different parameters.</h1>
+
+<button id="button4">Click to fade in boxes</button><br><br>
+<button id="button5">Click to fade out boxes</button><br><br>
+
+<div id="div1" style="width:200px;height:200px;display:none;background-color:red;"></div><br>
+<div id="div2" style="width:200px;height:200px;display:none;background-color:green;"></div><br>
+<div id="div3" style="width:200px;height:200px;display:none;background-color:blue;"></div>
+
+<button id="button6">Click to fade in/out boxes</button><br><br>
+
+ 
+<div id="flip"s style="background-color: yellow;">Click to slide down panel</div>
+<div id="panel" style="background-color: red;">Hello world!</div>
+
+<button id="button7">Start Animation</button>
+<div id="div4" style="background:#98bf21;height:100px;width:100px;position:absolute;"></div>
+
+<button id="button8">Start Animation 2</button>
+<div id="div5" style="background:gray;height:100px;width:100px;position:absolute;"></div>
+
+<div id="div6" style="background:blue;height:100px;width:100px;position:absolute;"></div>
+<button id="button9">Start Animation 3</button>
+
+<button id="button1o">Start Animation 4</button>
+
+
+
+<div id="div7" style="background:green;height:100px;width:100px;position:absolute;margin-top: 200px;"></div>
+
+<button id="button11">Start Animation 5</button>
+<div id="div8" style="background:red;height:100px;width:100px;position:absolute;margin-top: 300px;"></div>
+
+<button id="button12">Start Animation 6</button>
+<div id="div9" style="background:#00A4EF;height:100px;width:100px;position:absolute;margin-top: 400px;">Hello</div>
+
+<button id="button13">Stop sliding</button>
+
+<div id="flip2" style="margin-top: 500px;">Click to slide down panel</div>
+<div id="panel2">Hello world!</div>
+<script>
+$(document).ready(function(){
+    $("#hide").click(function(){
+        $(".para1").hide();
+    });
+    $("#show").click(function(){
+        $(".para1").show();
+    });
+});
+
+$(document).ready(function(){
+    $("#button1").click(function(){
+        $(".para2").hide(2000);
+    });
+     $("#button2").click(function(){
+        $(".para2").show(2000);
+    });
+});
+$(document).ready(function(){
+    $("#button3").click(function(){
+        $(".para3").toggle(3000);
+    });
+});
+$(document).ready(function(){
+    $("#button4").click(function(){
+        $("#div1").fadeIn();
+        $("#div2").fadeIn("slow");
+        $("#div3").fadeIn(3000);
+    });
+});
+$(document).ready(function(){
+    $("#button5").click(function(){
+        $("#div1").fadeOut();
+        $("#div2").fadeOut("slow");
+        $("#div3").fadeOut(3000);
+    });
+});
+$(document).ready(function(){
+    $("#button6").click(function(){
+        $("#div1").fadeToggle();
+        $("#div2").fadeToggle("slow");
+        $("#div3").fadeToggle(3000);
+    });
+});
+
+$(document).ready(function(){
+    $("#flip").click(function(){
+        $("#panel").slideToggle("slow");
+    });
+});
+$(document).ready(function(){
+    $("#button7").click(function(){
+        $("#div4").animate({left: '250px'});
+    });
+});
+$(document).ready(function(){
+    $("#button8").click(function(){
+        $("#div5").animate({
+            left: '250px',
+            opacity: '0.5',
+            height: '150px',
+            width: '150px'
+        });
+    });
+});
+$(document).ready(function(){
+    $("#button9").click(function(){
+        $("#div6").animate({
+            left: '250px',
+            height: '+=150px',
+            width: '+=150px'
+        });
+    });
+});
+$(document).ready(function(){
+    $("#button1o").click(function(){
+        $("#div7").animate({
+            height: 'toggle'
+        });
+    });
+});
+$(document).ready(function(){
+    $("#button11").click(function(){
+        var div = $("#div8");
+        div.animate({height: '300px', opacity: '0.4'}, "slow");
+        div.animate({width: '300px', opacity: '0.8'}, "slow");
+        div.animate({height: '100px', opacity: '0.4'}, "slow");
+        div.animate({width: '100px', opacity: '0.8'}, "slow");
+    });
+});
+$(document).ready(function(){
+    $("#button12").click(function(){
+        var div = $("#div9");  
+        div.animate({left: '100px'}, "slow");
+        div.animate({fontSize: '3em'}, "slow");
+    });
+});
+$(document).ready(function(){
+    $("#flip2").click(function(){
+        $("#panel2").slideDown(5000);
+    });
+    $("#button13").click(function(){
+        $("#panel2").stop();
+    });
+});
+$(document).ready(function(){
+    $("#button14").click(function(){
+        $(".para5").hide("slow", function(){
+            alert("The paragraph is now hidden");
+        });
+    });
+});
+$(document).ready(function(){
+    $("#button15").click(function(){
+        $("#para6").css("color", "red")
+            .slideUp(2000)
+            .slideDown(2000);
+    });
+});
+</script>
+</body>
+</html>
